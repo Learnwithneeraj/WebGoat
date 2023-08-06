@@ -28,6 +28,12 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - snyk/scan:
+          fail-on-issues: false
+          monitor-on-build: true
+          project: ${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BRANCH}-app
+          severity-threshold: high
+          token-variable: SNYK_TOKEN
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
