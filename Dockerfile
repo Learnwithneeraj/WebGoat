@@ -1,2 +1,2 @@
-FROM WebGoat/WebGoat
-
+FROM python:3.6-alpine
+RUN pip install slackclient
