@@ -1,2 +1,2 @@
-FROM webgoat:latest
+FROM WebGoat/WebGoat
 
