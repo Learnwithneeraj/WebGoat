@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   anchore: anchore/anchore-engine@1.9.0
-
 executors:
    py-executor:
     docker:
@@ -29,7 +28,7 @@ jobs:
           docker_layer_caching: true
       - checkout
       - run: |
-          docker image pull webgoat:latest
+          docker build -t "test:anchore" .
       - anchore/analyze_local_image:
           image_name: test:anchore
           timeout: '1000'
